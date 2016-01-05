@@ -19,19 +19,20 @@ Article.prototype.toHtml = function() {
   // TODO: Use jQuery to fill in the template with properties
   // from this particular Article instance. We need to fill in:
   // the author name and url, the article title and body, and the
-  // publication date.
+  // publication da te.
 
-  $newArticle.data('title', this.title);
-  $newArticle.data('author', this.author);
-  $newArticle.data('authorUrl', this.authorUrl);
-  $newArticle.data('publishedOn', this.publishedOn);
-  $newArticle.data('body', this.body);
+  $newArticle.find('h1').text(this.title);
+
+  $newArticle.find('.byline a').text(this.author);
+  $newArticle.find('address > a').attr('href', this.authorUrl);
+  $newArticle.find('.inline time').text(this.publishedOn);
+  $newArticle.find('.article-body').text(this.body);
 
 
   // Include the publication date as a 'title' attribute to show on hover:
   $newArticle.find('time[pubdate]').attr('title', this.publishedOn)
 
-  // Display the date as a relative number of "days ago":
+  // Display the date as a relative numb//er of "days ago":
   $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago')
 
   $newArticle.append('<hr>');
