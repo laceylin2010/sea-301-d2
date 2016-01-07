@@ -12,15 +12,15 @@
 
 
   <script id='myArticles' type='text/x-handlebars-template'>
-    <article data-category='{{category}}' data-author='{{author}}'>
+    <article  data-category='{{category}}' data-author='{{author}}'>
     <header>
       <h1>{{title}}</h1>
         <div class="byline">
             By <address><a href='{{authorUrl}}'></a></address>
-            published <time pubdate datetime="{{publishedOn}}">Publish Time</time>
+            published <time pubdate datetime="01-01-2016">{{publishedOn}}</time>
         </div>
     </header>
-    <section class="article-body"></section>
+    <section class="article-body">{{{body}}}</section>
           <a href="#" class="read-on">Read on &rarr;</a>
     </article>
   </script>
@@ -35,7 +35,6 @@
 
   </head>
   <body>
-    <section id="articles" class="tab-content">
       <div>
         <ul id="filters">
           <li>
@@ -69,6 +68,7 @@
       </nav>
     </header>
     <main>
+      <div id="app"></div>
       <section id="about" class="tab-content">
         <header>
           Welcome to my Blog
