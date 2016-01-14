@@ -22,7 +22,6 @@ Article.prototype.toHtml = function() {
   // publication da te.
 
   $newArticle.find('h1').text(this.title);
-
   $newArticle.find('.byline a').text(this.author);
   $newArticle.find('address > a').attr('href', this.authorUrl);
   $newArticle.find('.inline time').text(this.publishedOn);
